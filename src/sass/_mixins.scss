@@ -1,0 +1,32 @@
+@mixin block() {
+	background: white;
+	border-radius: 5px;
+	box-shadow: 1px 1px 4px #5b89a43f;
+}
+
+@mixin btn($bg-color, $font-color, $hover-bg-color) {
+  background-color: $bg-color;
+  color: $font-color;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  font-size: 16px;
+  border-bottom-color: darken($bg-color, 20%);
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;  
+  text-align: center;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+
+  &:focus, &:active {
+    outline: none;
+    border-bottom-color: transparent;
+    background-color: $hover-bg-color;
+    border-top-color: darken($bg-color, 20%);
+  }
+}

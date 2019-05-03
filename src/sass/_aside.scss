@@ -1,0 +1,94 @@
+.aside {
+  width: 230px;
+  margin-right: 20px;
+  position: relative;
+
+  @media #{$without-aside} {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    margin-right: 0;
+    left: -100%;
+    transition: 0.75s left ease-out;
+
+    &.aside--open {
+      left: 0;
+    }
+  }
+}
+
+.aside__close {
+  @media #{$with-aside} {
+    display: none;
+  }
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  border: 0;
+  background: 0 0;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 7px;
+  margin-right: 9px;
+  display: flex;
+  justify-content: center;
+  outline: none;
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    width: 15px;
+    height: 1px;
+    display: block;
+    background-color: $text-color;
+    position: absolute;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.aside-toggle {
+  @media #{$with-aside} {
+    display: none;
+  }
+
+  @include btn($brand-blue, white, $brand-blue);
+  padding: 10px;
+  box-shadow: 2px 6px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.aside-overlay {
+  @media #{$with-aside} {
+    display: none;
+  }
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.25);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.75s all linear;
+
+  &.aside-overlay--visible {
+    visibility: visible;
+    opacity: 1;
+  }
+}

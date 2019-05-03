@@ -1,0 +1,211 @@
+.ticket-list {
+  width: 565px;
+
+  @media #{$without-aside} {
+    width: 100%;
+  }
+}
+
+.ticket {
+  @include block();
+  display: flex;
+  margin-bottom: 20px;
+
+  @media #{$ticket-small-view} {
+    flex-direction: column-reverse;
+  }
+}
+
+.ticket__left {
+  padding: 25px 20px;
+  border-right: 1px #eceff1 solid;
+  flex-basis: 200px;
+
+  @media #{$without-aside} {
+    padding: 20px;
+  }
+
+  @media #{$ticket-small-info} {
+    flex-basis: 170px;
+  }
+
+  @media #{$ticket-small-view} {
+    padding: 10px 15px;
+    border-right: none;
+    border-top: 1px #eceff1 solid;
+    flex-basis: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.ticket__info {
+  padding: 30px 25px;
+  flex: 1;
+
+  @media #{$without-aside} {
+    padding: 20px;
+  }
+
+  @media #{$ticket-small-view} {
+    padding: 10px 15px;
+  }
+}
+
+.ticket__transfers {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  min-height: 10px;
+  font-weight: 600;
+  color: $muted-text;
+
+  @media #{$ticket-small-info} { 
+    width: 95px;
+  }
+
+  @media #{$ticket-small-view} {
+    margin-top: 2px;
+  }
+
+  &::before {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: $light-border-color;
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+  }
+
+  &::after {
+    content: "";
+    background-image: url(../images/airplane.png);
+    background-repeat: no-repeat;
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+  }
+}
+
+.ticket__carrier {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+
+  @media #{$ticket-small-info} { 
+    margin-bottom: 7px;
+  }
+
+  @media #{$ticket-small-view} {
+    margin: 0;
+    width: 100px;
+  }
+}
+
+.ticket__buy {
+  @include btn($brand-orange-dark, white, $brand-orange);
+  display: block;
+  width: 100%;
+  font-weight: 600;
+  padding: 9px 15px;
+  line-height: 20px;
+
+  @media #{$ticket-small-info} {
+    padding: 7px 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @media #{$ticket-small-view} {
+    padding: 0;
+    text-align: right;
+    width: auto;
+
+    &, &:hover, &:focus, &:active {
+      background: none;
+      border: 0;
+    }
+  }
+}
+
+@media #{$ticket-small-view} {
+  .ticket__price-text {
+    display: none
+  }
+
+  .ticket__price {
+    font-size: 25px;
+    color: $brand-orange;
+  }
+}
+
+.ticket-list__loading {
+  @include block();
+  padding: 30px 25px;
+  text-align: center;
+}
+
+.ticket-list__not-found {
+  @include block();
+  padding: 30px 25px;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.ticket__flight {
+  display: flex;
+  position: relative;
+}
+
+.ticket__route {
+  display: inline-block;
+  margin-top: 5px;
+  flex: 1;
+
+  @media #{$ticket-small-view} {
+    margin-top: 0;
+  }
+}
+
+.route {
+
+  &.route--left {
+    text-align: left;
+  }
+
+  &.route--right {
+    text-align: right;
+  }
+}
+
+.route__time {
+  font-size: 32px;
+  margin-bottom: 2px;
+
+  @media #{$ticket-small-view} {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+}
+
+.route__place {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.route__date {
+  font-size: 12px;
+  font-weight: 600;
+  color: $muted-text;
+}

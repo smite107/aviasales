@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  height: 160px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1em;
+  position: relative;
+
+  @media #{$ticket-small-info} {
+    height: 120px;
+  }
+
+  @media #{$without-aside} {
+    height: auto;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+}
+
+.header__logo {
+}
